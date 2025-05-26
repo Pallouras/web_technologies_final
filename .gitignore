@@ -1,0 +1,25 @@
+public_html/config.php
+public_html/vendor/
+
+
+# Logs and temp files
+*.log
+*.tmp
+
+# dotenv environment files
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Docker-related files (π.χ. PID files)
+*.pid
+
+# IDE/editor-specific folders
+.vscode/
+.idea/
+*.swp
+
+# Backup files
+*~

@@ -1,0 +1,6 @@
+.git
+*.log
+*.zip
+*.sql
+node_modules
+db/

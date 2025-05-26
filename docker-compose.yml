@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    labels:
+      - "auto.build=true"
+    ports:
+      - "8000:80"
+    volumes:
+      - ./public_html:/var/www/html/
+      - ./db:/var/www/html/db
+      - ./scripts:/scripts
+    depends_on:
+      - db
+    command: ["/bin/bash", "-c", "/scripts/init-db.sh && apache2-foreground"]
+
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      TZ: Europe/Athens
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d  # για init μόνο αν είναι νέα βάση
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    depends_on:
+      - db
+
+volumes:
+  db_data:
