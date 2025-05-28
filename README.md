@@ -2,6 +2,7 @@
 Κωνσταντίνος Γεωργίου - inf2021008
 Ανδρέας Τσιάρτας - inf2022247
 
+video-demonstration url:"https://ioniogr0-my.sharepoint.com/:v:/g/personal/inf2021008_ionio_gr/EaC9Y_7UQ4xPl7zesihSKswB_QEdZVhB8HW5zYhqnZDS5g?e=wjjHLJ"
 
 Για να χτιστεί η εφαρμογή μας πάμε στο τερματικό μας και επιλέγουμε το path στο οποιο βρίσκεται το project:
 τρέχουμε "docker compose up --build"
